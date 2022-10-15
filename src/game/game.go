@@ -5,8 +5,8 @@ type Game struct {
 }
 
 func NewGame(board [][]bool) *Game {
-	b := Board{board}
-	g := Game{b}
+	b := NewBoard(board)
+	g := Game{Board: *b}
 	return &g
 }
 
