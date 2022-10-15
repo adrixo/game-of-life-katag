@@ -1,18 +1,19 @@
 package game
 
-type game struct {
-	board [][]bool
+type Game struct {
+	Board
 }
 
-func NewGame(board [][]bool) *game {
-	g := game{board}
+func NewGame(board [][]bool) *Game {
+	b := Board{board}
+	g := Game{b}
 	return &g
 }
 
-func (g *game) NextGen() {
+func (g *Game) NextGen() {
 
 }
 
-func (g *game) GetBoard() [][]bool {
-	return g.board
+func (g *Game) GetBoard() [][]bool {
+	return g.Board.board
 }
