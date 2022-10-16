@@ -16,20 +16,21 @@ func NewBoard(board [][]bool) *Board {
 }
 
 func (b *Board) GetBoard() [][]bool {
-	var bb [b.high][b.width]bool
+	bb := make([][]bool, b.width)
 	for x := 0; x < b.width; x++ {
+		bb[x] = make([]bool, b.high)
 		for y := 0; y < b.high; y++ {
 			sX := strconv.FormatInt(int64(x), 10)
 			sY := strconv.FormatInt(int64(y), 10)
-			bb = b.m[sX+sY]
+			bb[x][y] = b.m[sX+sY]
 		}
 	}
-	return bb[:][:]
+	return bb
 }
 
 func createHM(board [][]bool) (m map[string]bool, width int, high int) {
 	width = len(board)
-	high = len(board[])
+	high = len(board[0])
 	m = make(map[string]bool)
 	for x := 0; x < width; x++ {
 		for y := 0; y < high; y++ {
